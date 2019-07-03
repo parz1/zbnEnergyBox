@@ -2,14 +2,15 @@
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"checkInvalidKey": true
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wxb825f247c3fffa23",
+	"appid": "wx3d6247473aa5bf46",
 	"projectname": "zbnEnergyBox",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

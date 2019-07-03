@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "查看启动日志",
+  "navigationBarBackgroundColor":"#fe5a59",
+  "navigationBarTitleText": "ZBN ENERGY",
+  "navigationBarTextStyle": "white",
   "component": true,
   "usingComponents": {
     "i-button": "../../dist/button/index",

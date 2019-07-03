@@ -11,6 +11,7 @@
     <ul class="container log-list">
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
         <card :text="(index + 1) + ' . ' + log"></card>
+        <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>
       </li>
     </ul>
   </div>
