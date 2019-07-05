@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="bgtop" @click="addOneEnergy">
+      <weather></weather>
       <div class="energyinfo">
         <span>Energy</span>
         <div id="energy">{{energy}}</div>
@@ -8,16 +9,16 @@
       <div class="nav">
         <ul>
           <li>
-            <img src="/static/images/data-active.png" alt="">
+            <img src="/static/images/data-active.png" alt />
           </li>
           <li>
-            <img src="/static/images/album.png" alt="">
+            <img src="/static/images/album.png" alt />
           </li>
           <li>
-            <img src="/static/images/minus.png" alt="">
+            <img src="/static/images/minus.png" alt />
           </li>
           <li>
-            <img src="/static/images/add.png" alt="">
+            <img src="/static/images/add.png" alt />
           </li>
         </ul>
       </div>
@@ -27,6 +28,7 @@
 
 <script>
 import card from "@/components/card";
+import weather from '@/components/weather';
 import store from "@/store/store";
 export default {
   data() {
@@ -35,12 +37,14 @@ export default {
       userInfo: {
         nickName: "mpvue",
         avatarUrl: "http://mpvue.com/assets/logo.png"
-      }
+      },
+
     };
   },
 
   components: {
-    card
+    card,
+    weather
   },
 
   methods: {
@@ -59,6 +63,19 @@ export default {
     clickHandle(ev) {
       console.log("clickHandle:", ev);
       // throw {message: 'custom test'}
+    },
+    getWt() {
+      this.$fly
+        .get(
+          "https://api.caiyunapp.com/v2/dzXnDU3NLcQRqM4M/121.6544,25.1552/realtime.json",
+          {}
+        )
+        .then(res => {
+          console.log(res);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
 
@@ -68,13 +85,15 @@ export default {
     }
   },
 
-  created() {}
+  created() {
+    this.getWt()
+  }
 };
 </script>
 
 <style scoped>
 .bgtop {
-  background-color: #fe5a59;
+  /* background-color: #fe5a59; */
   height: 45vh;
   position: relative;
   z-index: 0;
@@ -106,10 +125,8 @@ export default {
   border-radius: 25px;
   height: 40px;
   box-shadow: 0 10px 10px #eee;
-
 }
 .nav ul {
-  
   display: flex;
   flex-direction: row;
   justify-content: space-around;
