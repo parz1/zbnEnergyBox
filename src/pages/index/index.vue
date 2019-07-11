@@ -1,34 +1,39 @@
 <template>
-  <div>
+  <div id="app">
+    <div class="nav">
+      <ul>
+        <li>
+          <img src="/static/images/data-active.png" alt />
+        </li>
+        <li>
+          <img src="/static/images/album.png" alt />
+        </li>
+        <li>
+          <img src="/static/images/minus.png" alt />
+        </li>
+        <li>
+          <img src="/static/images/add.png" alt />
+        </li>
+      </ul>
+    </div>
     <div class="bgtop" @click="addOneEnergy">
       <weather></weather>
       <div class="energyinfo">
         <span>Energy</span>
         <div id="energy">{{energy}}</div>
       </div>
-      <div class="nav">
-        <ul>
-          <li>
-            <img src="/static/images/data-active.png" alt />
-          </li>
-          <li>
-            <img src="/static/images/album.png" alt />
-          </li>
-          <li>
-            <img src="/static/images/minus.png" alt />
-          </li>
-          <li>
-            <img src="/static/images/add.png" alt />
-          </li>
-        </ul>
-      </div>
     </div>
+    <div class="bgbottom">
+      <feed></feed>
+    </div>
+    <i-spin class="spin" size="large" fix v-if="spinShow"></i-spin>
   </div>
 </template>
 
 <script>
 import card from "@/components/card";
-import weather from '@/components/weather';
+import weather from "@/components/weather";
+import feed from "@/components/feed";
 import store from "@/store/store";
 export default {
   data() {
@@ -38,13 +43,15 @@ export default {
         nickName: "mpvue",
         avatarUrl: "http://mpvue.com/assets/logo.png"
       },
-
+      spinShow: true,
+      switch: false
     };
   },
 
   components: {
     card,
-    weather
+    weather,
+    feed
   },
 
   methods: {
@@ -65,12 +72,15 @@ export default {
       // throw {message: 'custom test'}
     },
     getWt() {
+      let that = this;
       this.$fly
         .get(
           "https://api.caiyunapp.com/v2/dzXnDU3NLcQRqM4M/121.6544,25.1552/realtime.json",
           {}
         )
         .then(res => {
+          that.switch = true;
+          that.spinShow = false;
           console.log(res);
         })
         .catch(error => {
@@ -86,22 +96,36 @@ export default {
   },
 
   created() {
-    this.getWt()
-  }
+    this.getWt();
+  },
+  mounted() {}
 };
 </script>
 
 <style scoped>
+#app {
+  overflow: visible;
+}
+.spin {
+  height: 100100%;
+  width: 100vw;
+  z-index: 9;
+}
 .bgtop {
   /* background-color: #fe5a59; */
-  height: 45vh;
+  height: 35vh;
   position: relative;
-  z-index: 0;
+  z-index: -1;
+}
+.bgbottom {
+  min-height: 65vh;
+  margin-top: -20px;
+  z-index: 1;
 }
 .energyinfo {
-  position: absolute;
+  position: fixed;
   left: 20vw;
-  top: 10vh;
+  top: 5vh;
   color: #fff;
   width: 60vw;
   text-align: center;
@@ -116,8 +140,9 @@ export default {
 
 .nav {
   position: absolute;
-  bottom: -20px;
+  top: 35vh;
   left: 10vw;
+  margin-top: -40px;
   width: 70vw;
   padding: 0 5vw;
   padding-top: 10px;
@@ -125,6 +150,7 @@ export default {
   border-radius: 25px;
   height: 40px;
   box-shadow: 0 10px 10px #eee;
+  z-index: 2;
 }
 .nav ul {
   display: flex;

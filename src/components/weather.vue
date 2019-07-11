@@ -8,9 +8,9 @@ export default {
   data() {
     return {
       colors: {
-        CLEAR_DAY: "#000",
+        CLEAR_DAY: "#FEDFE1",
         CLEAR_NIGHT: "#111",
-        PARTLY_CLOUDY_DAY: "#222",
+        PARTLY_CLOUDY_DAY: "#6E75A4",
         PARTLY_CLOUDY_NIGHT: "#333",
         CLOUDY: "#444",
         WIND: "#555",
@@ -102,10 +102,11 @@ export default {
               frontColor: '#ffffff',
               backgroundColor:that.bgcolor,
                 animation: {
-                    duration: 1000,
+                    duration: 500,
                     timingFunc: 'easeIn'
                 }
           })
+          console.log(that.bgcolor)
         })
         .catch(error => {
           console.log(error);
@@ -118,12 +119,13 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
 .box {
   display: block;
   width: 100%;
   height: 100%;
-  transition: background 1s;
+  transition: background .5s;
   transition-timing-function: ease-in;
+  z-index: -1;
 }
 </style>

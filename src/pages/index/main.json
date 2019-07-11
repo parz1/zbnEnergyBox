@@ -5,6 +5,10 @@
   "component": true,
   "usingComponents": {
     "i-button": "../../dist/button/index",
-    "i-modal": "../../dist/modal/index"
+    "i-modal": "../../dist/modal/index",
+    "i-spin": "../../dist/spin/index",
+    "i-row": "../../dist/row/index",
+    "i-col": "../../dist/col/index",
+    "i-rate": "../../dist/rate/index"
   }
 }
