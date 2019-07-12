@@ -43,8 +43,8 @@ export default {
         nickName: "mpvue",
         avatarUrl: "http://mpvue.com/assets/logo.png"
       },
-      spinShow: true,
-      switch: false
+      spinShow: false,
+      switch: true
     };
   },
 
@@ -70,22 +70,6 @@ export default {
     clickHandle(ev) {
       console.log("clickHandle:", ev);
       // throw {message: 'custom test'}
-    },
-    getWt() {
-      let that = this;
-      this.$fly
-        .get(
-          "https://api.caiyunapp.com/v2/dzXnDU3NLcQRqM4M/121.6544,25.1552/realtime.json",
-          {}
-        )
-        .then(res => {
-          that.switch = true;
-          that.spinShow = false;
-          console.log(res);
-        })
-        .catch(error => {
-          console.log(error);
-        });
     }
   },
 
@@ -96,7 +80,6 @@ export default {
   },
 
   created() {
-    this.getWt();
   },
   mounted() {}
 };

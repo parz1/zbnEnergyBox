@@ -5,20 +5,20 @@
         <img src="https://raw.githubusercontent.com/parz1/MarkdownPhotos/master/timg.png" alt />
       </div>
       <div class="con">
-        <span class="title">{{cardInfo.title}}</span>
-        <span class="name">{{"《"+cardInfo.name+"》"}}</span>
+        <span class="title">{{title}}</span>
+        <span class="name">{{"《"+name+"》"}}</span>
       </div>
     </div>
     <div class="divider"></div>
     
     <div class="comment">
       <span class="quote lf">"</span>
-      <p>{{cardInfo.content}}</p>
+      <p>{{content}}</p>
       <span class="quote rt">"</span>
     </div>
     <i-rate size="14" class="irate"
             disabled
-            :value="cardInfo.star">{{cardInfo.star}}
+            :value="star">{{star}}
     </i-rate>
   </mycard>
 </template>
@@ -26,14 +26,15 @@
 <script>
 import mycard from "@/components/minicompo/mycard";
 export default {
+    props:[
+        'name',
+        'title',
+        'star',
+        'content'
+    ],
   data() {
     return {
       cardInfo: {
-        name: "春光乍泄",
-        title: "不如我们从头来过",
-        star: 4.5,
-        content:
-          "她说她和前男友说这句话的时候，前男友说这是不是前前男友的qq密码。"
       }
     };
   },
@@ -108,6 +109,7 @@ export default {
   text-indent: 26px;
   font-size: 14px;
   white-space: pre-wrap;
+  color: #666;
 }
 .irate {
   display: block;

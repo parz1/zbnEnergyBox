@@ -1,12 +1,7 @@
 <template>
-  <mycard color="#fff">
-    <div class="container">
-      <div class="cover">
-        <img src="https://raw.githubusercontent.com/parz1/MarkdownPhotos/master/timg.png" alt />
-      </div>
-      <div class="title">
-          <span></span>
-      </div>
+  <mycard color="#fff" padding="0">
+    <div class="con">
+      <div class="cover">11</div>
     </div>
   </mycard>
 </template>
@@ -24,15 +19,18 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.con {
+    width: 100%;
+    height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: left;
 }
 .cover {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 150px;
   text-align: center;
+  background: #000;
   border-radius: 15px;
 }
 .cover img {

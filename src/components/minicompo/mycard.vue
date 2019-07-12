@@ -1,5 +1,5 @@
 <template>
-    <div :style="{'background-color':color}" id="card">
+    <div :style="{'background-color':color,'padding':padding}" id="card">
         <slot></slot>
     </div>
 </template>
@@ -7,7 +7,8 @@
 <script>
 export default {
     props:[
-        'color'
+        'color',
+        'padding'
     ]
 }
 </script>

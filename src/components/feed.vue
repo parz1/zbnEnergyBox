@@ -11,9 +11,15 @@
           <span class="user">{{item.userName}}</span>
           <span class="intro">刚发布了</span>
           <div class="content">
-            <kimochi v-if="item.type=='kimochi'"></kimochi>
+            <kimochi :content="item.content" v-if="item.type=='kimochi'"></kimochi>
             <share v-else-if="item.type=='share'"></share>
-            <movie v-else-if="item.type=='movie'"></movie>
+            <movie
+              :name="item.name"
+              :title="item.title"
+              :star="item.star"
+              :content="item.content"
+              v-else-if="item.type=='movie'"
+            ></movie>
             <trip v-else></trip>
           </div>
         </div>
@@ -33,23 +39,35 @@ export default {
       feedList: [
         {
           userName: "Parzi",
+          date: new Date("HH:mm:ss"),
+          type: "kimochi",
+          content: "是你帮一个平凡男人、梦想实现的故事",
+          tags: ["歌曲", "感情"]
+        },
+        {
+          userName: "Parzi",
           date: Date(),
           type: "movie",
+
+          name: "春光乍泄",
           title: "不如我们从头来过",
+          star: 4.5,
+          content:
+            "她说她和前男友说这句话的时候，前男友说这是不是分手时候的qq密码。",
           tags: ["电影", "感情"]
         },
         {
           userName: "Parzi",
           date: new Date("HH:mm:ss"),
           type: "kimochi",
-          title: "不如我们从头来过",
-          tags: ["电影", "感情"]
+          content: "如果要拍电影的话,我就找你当女主角。",
+          tags: ["歌曲", "感情"]
         },
         {
           userName: "Parzi",
           date: new Date(),
-          type: "movie",
-          title: "不如我们从头来过",
+          type: "trip",
+          title: "我的无能",
           tags: ["电影", "感情"]
         },
         {
@@ -162,7 +180,6 @@ li {
   position: relative;
   display: flex;
   flex-direction: row;
-  
 }
 .feedItem::after {
   display: block;
@@ -188,7 +205,7 @@ li {
 .feedLf {
   display: inline-block;
   position: sticky;
-  top: -20px;
+  top: -10px;
   text-align: right;
   width: 16%;
   height: 100%;
@@ -202,8 +219,8 @@ li {
   border-radius: 50%;
 }
 .feedRt {
-    display: inline-block;
-    width: 85%;
+  display: inline-block;
+  width: 85%;
   position: relative;
 }
 .date {

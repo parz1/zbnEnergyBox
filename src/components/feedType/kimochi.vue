@@ -1,12 +1,17 @@
 <template>
-  <div>1</div>
+  <div class="box">
+      {{content}}
+  </div>
 </template>
 
 <script>
 import mycard from "@/components/minicompo/mycard";
 export default {
+    props:[
+        'content'
+    ],
   data() {
-    return {};
+    return { };
   },
   components: {
     mycard
@@ -15,9 +20,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
+.box {
+  font-weight: 300;
+  font-size: 18px;
 }
 </style>
