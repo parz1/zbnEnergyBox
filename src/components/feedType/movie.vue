@@ -2,7 +2,7 @@
   <mycard color="#fff" @click="hi">
     <div class="intro">
       <div class="cover">
-        <img src="https://raw.githubusercontent.com/parz1/MarkdownPhotos/master/timg.png" alt />
+        <img src="http://localhost:3000/loadimg?imgurl=35a353bb74870812040036960b25fb74" alt />
       </div>
       <div class="con">
         <span class="title">{{title}}</span>

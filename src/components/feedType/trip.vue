@@ -2,6 +2,7 @@
   <mycard color="#fff" padding="0">
     <div class="con">
       <div class="cover">11</div>
+      <div>content</div>
     </div>
   </mycard>
 </template>
@@ -20,15 +21,15 @@ export default {
 
 <style scoped>
 .con {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: left;
 }
 .cover {
   width: 100%;
-  height: 150px;
+  height: 120px;
   text-align: center;
   background: #000;
   border-radius: 15px;

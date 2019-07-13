@@ -74,8 +74,11 @@ export default {
           userName: "Parzi",
           date: new Date(),
           type: "movie",
-          title: "不如我们从头来过",
-          tags: ["电影", "感情"]
+          name: "哭泣女人的诅咒",
+          title: "貌似是评价较高的恐怖片",
+          tags: ["电影", "恐怖"],
+          content: "有机会一起看呀。",
+          star: 4.5
         },
         {
           userName: "Parzi",
