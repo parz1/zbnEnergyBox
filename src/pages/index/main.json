@@ -9,6 +9,7 @@
     "i-spin": "../../dist/spin/index",
     "i-row": "../../dist/row/index",
     "i-col": "../../dist/col/index",
-    "i-rate": "../../dist/rate/index"
+    "i-rate": "../../dist/rate/index",
+    "i-icon": "../../dist/icon/index"
   }
 }

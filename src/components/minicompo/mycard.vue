@@ -19,5 +19,6 @@ export default {
     border-radius: 20px;
     border: 0px solid #eee;
     box-shadow: 0px 0px 6px #eee;
+    overflow: hidden;
 }
 </style>

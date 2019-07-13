@@ -101,7 +101,6 @@ export default {
 .rt {
     float: right;
     margin-top: -20px;
-    margin-right: 10px;
 }
 .comment p {
     padding-top: 20px;
